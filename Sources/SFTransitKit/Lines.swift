@@ -18,7 +18,7 @@ public struct Line: Codable, Sendable, Identifiable {
     public let transportMode: TransportMode
     public let publicCode, siriLineRef: String
     public let monitored: Bool
-    public let operatorRef: OperatorRef = "SF"
+    public let operatorRef: OperatorRef
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"

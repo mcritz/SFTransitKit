@@ -70,7 +70,7 @@ actor MockTransitService: TransitService {
     // Arrange
     let mockRepository = MockTransitService()
     let mockLine = Line(id: "1", name: "Test Line", fromDate: Date(), toDate: Date().addingTimeInterval(86400), 
-                        transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: .sf)
+                        transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: "SF")
     await mockRepository.updateLinesResult(.success([mockLine]))
     
     // Act - First call should increment the call count
@@ -92,7 +92,7 @@ actor MockTransitService: TransitService {
     // Arrange
     let mockRepository = MockTransitService()
     let mockLine = Line(id: "1", name: "Test Line", fromDate: Date(), toDate: Date().addingTimeInterval(86400), 
-                        transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: .sf)
+                        transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: "SF")
     await mockRepository.updateLinesResult(.success([mockLine]))
     
     // Act - First call should increment the call count
@@ -130,7 +130,7 @@ actor MockTransitService: TransitService {
         #expect(forecasts.count == 1, "Should return one forecast")
         #expect(forecasts[0].id == "1", "Should return the mock forecast")
     case .failure:
-        #expect(false, "Should not fail")
+        #expect(Bool(false), "Should not fail")
     }
     
     switch result2 {
@@ -138,6 +138,6 @@ actor MockTransitService: TransitService {
         #expect(forecasts.count == 1, "Should return one forecast")
         #expect(forecasts[0].id == "1", "Should return the mock forecast")
     case .failure:
-        #expect(false, "Should not fail")
+        #expect(Bool(false), "Should not fail")
     }
 }

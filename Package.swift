@@ -22,7 +22,13 @@ let package = Package(
         ),
         .testTarget(
             name: "SFTransitKitTests",
-            dependencies: ["SFTransitKit"]
+            dependencies: ["SFTransitKit"],
+            resources: [
+                .process("fixtures/lines.json"),
+                .process("fixtures/operators.json"),
+                .process("fixtures/stop-monitoring.json"),
+                .process("fixtures/stops.json")
+            ]
         ),
     ]
 )
