@@ -1,0 +1,131 @@
+{
+    "ServiceDelivery": {
+        "ResponseTimestamp": "2025-09-03T18:14:55Z",
+        "ProducerRef": "SF",
+        "Status": true,
+        "StopMonitoringDelivery": {
+            "version": "1.4",
+            "ResponseTimestamp": "2025-09-03T18:14:55Z",
+            "Status": true,
+            "MonitoredStopVisit": [
+                {
+                    "RecordedAtTime": "2025-09-03T18:14:45Z",
+                    "MonitoringRef": "14510",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "N",
+                        "DirectionRef": "OB",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2025-09-03",
+                            "DatedVehicleJourneyRef": "11929582_M11"
+                        },
+                        "PublishedLineName": "JUDAH",
+                        "OperatorRef": "SF",
+                        "OriginRef": "15240",
+                        "OriginName": "King St & 4th St",
+                        "DestinationRef": "17219",
+                        "DestinationName": "Judah\/La Playa\/Ocean Beach",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.392365",
+                            "Latitude": "37.7776985"
+                        },
+                        "Bearing": "45.0000000000",
+                        "Occupancy": "seatsAvailable",
+                        "VehicleRef": "2046",
+                        "MonitoredCall": {
+                            "StopPointRef": "14510",
+                            "StopPointName": "The Embarcadero & Folsom St",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "false",
+                            "DestinationDisplay": "Ocean Beach",
+                            "AimedArrivalTime": "2025-09-03T18:23:00Z",
+                            "ExpectedArrivalTime": "2025-09-03T18:21:40Z",
+                            "AimedDepartureTime": "2025-09-03T18:23:00Z",
+                            "ExpectedDepartureTime": null,
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2025-09-03T18:14:45Z",
+                    "MonitoringRef": "14510",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "N",
+                        "DirectionRef": "OB",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2025-09-03",
+                            "DatedVehicleJourneyRef": "11929583_M11"
+                        },
+                        "PublishedLineName": "JUDAH",
+                        "OperatorRef": "SF",
+                        "OriginRef": "15240",
+                        "OriginName": "King St & 4th St",
+                        "DestinationRef": "17219",
+                        "DestinationName": "Judah\/La Playa\/Ocean Beach",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.397583",
+                            "Latitude": "37.773571"
+                        },
+                        "Bearing": "210.0000000000",
+                        "Occupancy": "seatsAvailable",
+                        "VehicleRef": "2033",
+                        "MonitoredCall": {
+                            "StopPointRef": "14510",
+                            "StopPointName": "The Embarcadero & Folsom St",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "false",
+                            "DestinationDisplay": "Ocean Beach",
+                            "AimedArrivalTime": "2025-09-03T18:33:00Z",
+                            "ExpectedArrivalTime": "2025-09-03T18:31:21Z",
+                            "AimedDepartureTime": "2025-09-03T18:33:00Z",
+                            "ExpectedDepartureTime": null,
+                            "Distances": ""
+                        }
+                    }
+                },
+                {
+                    "RecordedAtTime": "2025-09-03T18:14:45Z",
+                    "MonitoringRef": "14510",
+                    "MonitoredVehicleJourney": {
+                        "LineRef": "N",
+                        "DirectionRef": "OB",
+                        "FramedVehicleJourneyRef": {
+                            "DataFrameRef": "2025-09-03",
+                            "DatedVehicleJourneyRef": "11929584_M11"
+                        },
+                        "PublishedLineName": "JUDAH",
+                        "OperatorRef": "SF",
+                        "OriginRef": "15240",
+                        "OriginName": "King St & 4th St",
+                        "DestinationRef": "17219",
+                        "DestinationName": "Judah\/La Playa\/Ocean Beach",
+                        "Monitored": true,
+                        "InCongestion": null,
+                        "VehicleLocation": {
+                            "Longitude": "-122.395638",
+                            "Latitude": "37.7751541"
+                        },
+                        "Bearing": "225.0000000000",
+                        "Occupancy": "seatsAvailable",
+                        "VehicleRef": "2042",
+                        "MonitoredCall": {
+                            "StopPointRef": "14510",
+                            "StopPointName": "The Embarcadero & Folsom St",
+                            "VehicleLocationAtStop": "",
+                            "VehicleAtStop": "false",
+                            "DestinationDisplay": "Ocean Beach",
+                            "AimedArrivalTime": "2025-09-03T18:43:00Z",
+                            "ExpectedArrivalTime": "2025-09-03T18:41:21Z",
+                            "AimedDepartureTime": "2025-09-03T18:43:00Z",
+                            "ExpectedDepartureTime": null,
+                            "Distances": ""
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

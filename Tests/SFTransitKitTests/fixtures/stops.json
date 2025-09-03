@@ -1,0 +1,1226 @@
+{
+    "Contents": {
+        "ResponseTimestamp": "2025-09-03T11:21:23-07:00",
+        "dataObjects": {
+            "id": "SF",
+            "ScheduledStopPoint": [
+                {
+                    "id": "17999",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "9th Ave & Irving St",
+                    "Location": {
+                        "Longitude": "-122.466344",
+                        "Latitude": "37.763307"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17999",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13909",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Cole St",
+                    "Location": {
+                        "Longitude": "-122.449804",
+                        "Latitude": "37.765863"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13909",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13911",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Cole St",
+                    "Location": {
+                        "Longitude": "-122.450131",
+                        "Latitude": "37.765745"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13911",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13912",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Hillway Ave",
+                    "Location": {
+                        "Longitude": "-122.456561",
+                        "Latitude": "37.765003"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13912",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13913",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Hillway Ave",
+                    "Location": {
+                        "Longitude": "-122.456512",
+                        "Latitude": "37.764932"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13913",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13915",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Stanyan St",
+                    "Location": {
+                        "Longitude": "-122.452928",
+                        "Latitude": "37.765371"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13915",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "13914",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Carl St & Stanyan St",
+                    "Location": {
+                        "Longitude": "-122.45259",
+                        "Latitude": "37.765495"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/13914",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "14448",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Duboce Ave & Church St",
+                    "Location": {
+                        "Longitude": "-122.4294",
+                        "Latitude": "37.769409"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/14448",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "14447",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Duboce Ave & Church St",
+                    "Location": {
+                        "Longitude": "-122.429408",
+                        "Latitude": "37.769472"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/14447",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17252",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Duboce St\/Noe St\/Duboce Park",
+                    "Location": {
+                        "Longitude": "-122.433557",
+                        "Latitude": "37.769357"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17252",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15118",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Irving St & 2nd Ave",
+                    "Location": {
+                        "Longitude": "-122.458643",
+                        "Latitude": "37.764441"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15118",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "18031",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Irving St & 5th Ave",
+                    "Location": {
+                        "Longitude": "-122.462139",
+                        "Latitude": "37.764182"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/18031",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "18032",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Irving St & 6th Ave",
+                    "Location": {
+                        "Longitude": "-122.462987",
+                        "Latitude": "37.764244"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/18032",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17996",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Irving St & 8th Ave",
+                    "Location": {
+                        "Longitude": "-122.465428",
+                        "Latitude": "37.764038"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17996",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15124",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Irving St & Arguello Blvd",
+                    "Location": {
+                        "Longitude": "-122.458024",
+                        "Latitude": "37.764366"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15124",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17219",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah\/La Playa\/Ocean Beach",
+                    "Location": {
+                        "Longitude": "-122.508685",
+                        "Latitude": "37.760349"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17219",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15223",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah\/La Playa\/Ocean Beach",
+                    "Location": {
+                        "Longitude": "-122.508181",
+                        "Latitude": "37.760304"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15223",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15195",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 12th Ave",
+                    "Location": {
+                        "Longitude": "-122.469324",
+                        "Latitude": "37.762069"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15195",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15196",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 12th Ave",
+                    "Location": {
+                        "Longitude": "-122.469526",
+                        "Latitude": "37.761988"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15196",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15197",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 15th Ave",
+                    "Location": {
+                        "Longitude": "-122.472777",
+                        "Latitude": "37.761848"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15197",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15198",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 16th Ave",
+                    "Location": {
+                        "Longitude": "-122.473632",
+                        "Latitude": "37.76194"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15198",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15200",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 19th Ave",
+                    "Location": {
+                        "Longitude": "-122.477194",
+                        "Latitude": "37.761655"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15200",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15199",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 19th Ave",
+                    "Location": {
+                        "Longitude": "-122.476921",
+                        "Latitude": "37.761743"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15199",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15201",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 22nd Ave",
+                    "Location": {
+                        "Longitude": "-122.479855",
+                        "Latitude": "37.761534"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15201",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15202",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 23rd Ave",
+                    "Location": {
+                        "Longitude": "-122.481164",
+                        "Latitude": "37.761547"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15202",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15204",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 25th Ave",
+                    "Location": {
+                        "Longitude": "-122.48356",
+                        "Latitude": "37.761373"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15204",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15203",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 25th Ave",
+                    "Location": {
+                        "Longitude": "-122.4833",
+                        "Latitude": "37.761452"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15203",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15206",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 28th Ave",
+                    "Location": {
+                        "Longitude": "-122.486763",
+                        "Latitude": "37.761232"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15206",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15205",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 28th Ave",
+                    "Location": {
+                        "Longitude": "-122.48651",
+                        "Latitude": "37.76131"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15205",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15208",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 31st Ave",
+                    "Location": {
+                        "Longitude": "-122.4895",
+                        "Latitude": "37.761105"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15208",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15207",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 31st Ave",
+                    "Location": {
+                        "Longitude": "-122.489719",
+                        "Latitude": "37.761172"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15207",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15210",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 34th Ave",
+                    "Location": {
+                        "Longitude": "-122.493199",
+                        "Latitude": "37.760955"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15210",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15209",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 34th Ave",
+                    "Location": {
+                        "Longitude": "-122.49293",
+                        "Latitude": "37.761028"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15209",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15212",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 40th Ave",
+                    "Location": {
+                        "Longitude": "-122.499154",
+                        "Latitude": "37.760679"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15212",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15211",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 40th Ave",
+                    "Location": {
+                        "Longitude": "-122.499359",
+                        "Latitude": "37.760743"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15211",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15214",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 43rd Ave",
+                    "Location": {
+                        "Longitude": "-122.502839",
+                        "Latitude": "37.760518"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15214",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15213",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 43rd Ave",
+                    "Location": {
+                        "Longitude": "-122.502574",
+                        "Latitude": "37.760598"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15213",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15215",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 46th Ave",
+                    "Location": {
+                        "Longitude": "-122.505832",
+                        "Latitude": "37.760493"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15215",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15216",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 46th Ave",
+                    "Location": {
+                        "Longitude": "-122.506064",
+                        "Latitude": "37.760392"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15216",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15193",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 9th Ave",
+                    "Location": {
+                        "Longitude": "-122.466688",
+                        "Latitude": "37.762227"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15193",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15194",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & 9th Ave",
+                    "Location": {
+                        "Longitude": "-122.466312",
+                        "Latitude": "37.762139"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15194",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15219",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & Funston Ave",
+                    "Location": {
+                        "Longitude": "-122.470329",
+                        "Latitude": "37.762075"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15219",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15220",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & Funston Ave",
+                    "Location": {
+                        "Longitude": "-122.470572",
+                        "Latitude": "37.76195"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15220",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15225",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & Sunset Blvd",
+                    "Location": {
+                        "Longitude": "-122.495805",
+                        "Latitude": "37.760845"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15225",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15224",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Judah St & Sunset Blvd",
+                    "Location": {
+                        "Longitude": "-122.495668",
+                        "Latitude": "37.760917"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15224",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15234",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "King St & 2nd St",
+                    "Location": {
+                        "Longitude": "-122.389872",
+                        "Latitude": "37.77972"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15234",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15237",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "King St & 2nd St",
+                    "Location": {
+                        "Longitude": "-122.389824",
+                        "Latitude": "37.779621"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15237",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15239",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "King St & 4th St",
+                    "Location": {
+                        "Longitude": "-122.394173",
+                        "Latitude": "37.776269"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15239",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15240",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "King St & 4th St",
+                    "Location": {
+                        "Longitude": "-122.394082",
+                        "Latitude": "37.776269"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15240",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15727",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Civic Center Station\/Downtn",
+                    "Location": {
+                        "Longitude": "-122.413347",
+                        "Latitude": "37.779712"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15727",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "16997",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Civic Center Station\/Outbd",
+                    "Location": {
+                        "Longitude": "-122.414223",
+                        "Latitude": "37.77924"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/16997",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17217",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Embarcadero Station",
+                    "Location": {
+                        "Longitude": "-122.39715",
+                        "Latitude": "37.79271"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17217",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "16992",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Embarcadero Station",
+                    "Location": {
+                        "Longitude": "-122.396431",
+                        "Latitude": "37.793134"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/16992",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15731",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Montgomery Station\/Downtown",
+                    "Location": {
+                        "Longitude": "-122.401351",
+                        "Latitude": "37.789219"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15731",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "16994",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Montgomery Station\/Outbound",
+                    "Location": {
+                        "Longitude": "-122.402127",
+                        "Latitude": "37.788791"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/16994",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15417",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Powell Station\/Downtown",
+                    "Location": {
+                        "Longitude": "-122.407086",
+                        "Latitude": "37.784653"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15417",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "16995",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Powell Station\/Outbound",
+                    "Location": {
+                        "Longitude": "-122.407822",
+                        "Latitude": "37.7843"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/16995",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "15419",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Metro Van Ness Station",
+                    "Location": {
+                        "Longitude": "-122.419252",
+                        "Latitude": "37.775127"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/15419",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17318",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Sunset Tunnel East Portal",
+                    "Location": {
+                        "Longitude": "-122.433511",
+                        "Latitude": "37.769285"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17318",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "14506",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "The Embarcadero & Brannan St",
+                    "Location": {
+                        "Longitude": "-122.388138",
+                        "Latitude": "37.784359"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/14506",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "17145",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "The Embarcadero & Brannan St",
+                    "Location": {
+                        "Longitude": "-122.387977",
+                        "Latitude": "37.784627"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/17145",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "14510",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "The Embarcadero & Folsom St",
+                    "Location": {
+                        "Longitude": "-122.389841",
+                        "Latitude": "37.790749"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/14510",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "14509",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "The Embarcadero & Folsom St",
+                    "Location": {
+                        "Longitude": "-122.389692",
+                        "Latitude": "37.790481"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/14509",
+                    "StopType": "onstreetBus"
+                },
+                {
+                    "id": "16996",
+                    "Extensions": {
+                        "LocationType": null,
+                        "PlatformCode": null,
+                        "ParentStation": null,
+                        "ValidBetween": {
+                            "FromDate": "2025-08-30T00:00:00-07:00",
+                            "ToDate": "2026-01-02T23:59:00-07:00"
+                        }
+                    },
+                    "Name": "Van Ness Station Outbound",
+                    "Location": {
+                        "Longitude": "-122.41934",
+                        "Latitude": "37.775234"
+                    },
+                    "Url": "https:\/\/www.sfmta.com\/16996",
+                    "StopType": "onstreetBus"
+                }
+            ]
+        }
+    }
+}
