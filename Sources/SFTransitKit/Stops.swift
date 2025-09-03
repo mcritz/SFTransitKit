@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - Stops
-struct Stops: Codable {
-    let contents: Contents
+public struct Stops: Codable, Sendable {
+    public let contents: Contents
 
     enum CodingKeys: String, CodingKey {
         case contents = "Contents"
@@ -17,9 +17,9 @@ struct Stops: Codable {
 }
 
 // MARK: - Contents
-struct Contents: Codable {
-    let responseTimestamp: Date
-    let dataObjects: DataObjects
+public struct Contents: Codable, Sendable {
+    public let responseTimestamp: Date
+    public let dataObjects: DataObjects
 
     enum CodingKeys: String, CodingKey {
         case responseTimestamp = "ResponseTimestamp"
@@ -28,9 +28,9 @@ struct Contents: Codable {
 }
 
 // MARK: - DataObjects
-struct DataObjects: Codable {
-    let id: String
-    let scheduledStopPoint: [ScheduledStopPoint]
+public struct DataObjects: Codable, Sendable {
+    public let id: String
+    public let scheduledStopPoint: [ScheduledStopPoint]
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,11 +39,11 @@ struct DataObjects: Codable {
 }
 
 // MARK: - ScheduledStopPoint
-struct ScheduledStopPoint: Codable {
-    let id: String
-    let name: String
-    let location: Location
-    let url: String
+public struct ScheduledStopPoint: Codable, Sendable, Identifiable {
+    public let id: String
+    public let name: String
+    public let location: Location
+    public let url: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -54,8 +54,8 @@ struct ScheduledStopPoint: Codable {
 }
 
 // MARK: - Location
-struct Location: Codable {
-    let longitude, latitude: String
+public struct Location: Codable, Sendable {
+    public let longitude, latitude: String
 
     enum CodingKeys: String, CodingKey {
         case longitude = "Longitude"

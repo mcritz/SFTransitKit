@@ -7,17 +7,18 @@
 
 import Foundation
 
-typealias LineID = String
+public typealias LineID = String
+public typealias OperatorRef = String
 
 // MARK: - Line
-struct Line: Codable {
-    let id: LineID
-    let name: String
-    let fromDate, toDate: Date
-    let transportMode: TransportMode
-    let publicCode, siriLineRef: String
-    let monitored: Bool
-    let operatorRef: OperatorRef
+public struct Line: Codable, Sendable, Identifiable {
+    public let id: LineID
+    public let name: String
+    public let fromDate, toDate: Date
+    public let transportMode: TransportMode
+    public let publicCode, siriLineRef: String
+    public let monitored: Bool
+    public let operatorRef: OperatorRef = "SF"
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"
@@ -32,14 +33,10 @@ struct Line: Codable {
     }
 }
 
-enum OperatorRef: String, Codable {
-    case sf = "SF"
-}
-
-enum TransportMode: String, Codable {
+public enum TransportMode: String, Codable, Sendable {
     case bus = "bus"
     case cableway = "cableway"
     case metro = "metro"
 }
 
-typealias Lines = [Line]
+public typealias Lines = [Line]

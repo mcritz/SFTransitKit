@@ -7,19 +7,19 @@
 
 import Foundation
 
-typealias Capacity = String
-typealias TripForecastId = String
+public typealias Capacity = String
+public typealias TripForecastId = String
 
-struct TripForecast: Identifiable, Sendable {
-    let id: TripForecastId
-    let waitTime: TimeInterval
-    var waitTimeWhole: Int {
+public struct TripForecast: Identifiable, Sendable {
+    public let id: TripForecastId
+    public let waitTime: TimeInterval
+    public var waitTimeWhole: Int {
         Int(waitTime / 60)
     }
-    let capacity: String?
-    let destination: String?
+    public let capacity: String?
+    public let destination: String?
 
-    internal init(
+    public init(
         _ id: TripForecastId, wait: TimeInterval, destination: String? = nil,
         capacity: Capacity = "Unknown"
     ) {
@@ -31,19 +31,19 @@ struct TripForecast: Identifiable, Sendable {
 }
 
 extension TripForecast: CustomStringConvertible {
-    var wait: String {
+    public var wait: String {
         Duration(secondsComponent: Int64(waitTime), attosecondsComponent: 0).formatted(
             .units(width: .wide, maximumUnitCount: 1))
     }
 
-    var description: String {
+    public var description: String {
         if let destination {
             return destination + " " + wait
         }
         return wait
     }
 
-    var waitFormatted: String {
+    public var waitFormatted: String {
         Duration(secondsComponent: Int64(waitTime), attosecondsComponent: 0).formatted(
             .units(width: .condensedAbbreviated, maximumUnitCount: 1))
     }

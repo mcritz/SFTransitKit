@@ -7,21 +7,19 @@
 import Foundation
 
 // Get an API key here: `https://511.org/open-data/transit`
-typealias APIKey = String
+public typealias APIKey = String
 
-typealias Stop = ScheduledStopPoint
-extension Stop: Identifiable { }
-typealias StopCode = String
-typealias OperatorCode = String
-typealias LineCode = String
-extension Line: Identifiable { } 
+public typealias Stop = ScheduledStopPoint
+public typealias StopCode = String
+public typealias OperatorCode = String
+public typealias LineCode = String
 
-actor API {
+public actor API {
     private let decoder: JSONDecoder
     private let apiKey: APIKey
     private let networkClient: NetworkClient
     
-    init(apiKey: APIKey, networkClient: NetworkClient = URLSessionNetworkClient()) {
+    public init(apiKey: APIKey, networkClient: NetworkClient = URLSessionNetworkClient()) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         self.decoder = decoder

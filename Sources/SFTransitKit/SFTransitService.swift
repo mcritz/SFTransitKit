@@ -1,7 +1,7 @@
 import Foundation
 
 /// Implementation of TransitService using the API
-actor SFTransitService: TransitService {
+public actor SFTransitService: TransitService {
     private let api: API
     private var lineCache: [OperatorCode: ([Line], Date)] = [:]
     private var stopCache: [StopCacheKey: ([Stop], Date)] = [:]
@@ -11,13 +11,17 @@ actor SFTransitService: TransitService {
         let operatorCode: OperatorCode
         let lineCode: LineCode
     }
-
     
-    init(api: API) {
+    public init(api: API) {
         self.api = api
     }
     
-    func fetchLines(_ operatorCode: OperatorCode = "SF") async throws -> [Line] {
+    public init(apiKey: APIKey) {
+        let api = API(apiKey: apiKey)
+        self.init(api: api)
+    }
+    
+    public func fetchLines(_ operatorCode: OperatorCode = "SF") async throws -> [Line] {
         // Check cache first
         if let (cachedLines, timestamp) = lineCache[operatorCode], 
            Date().timeIntervalSince(timestamp) < cacheDuration {
@@ -33,7 +37,7 @@ actor SFTransitService: TransitService {
         return lines
     }
     
-    func fetchStops(_ operatorCode: OperatorCode = "SF", line: LineCode = "N") async throws -> [Stop] {
+    public func fetchStops(_ operatorCode: OperatorCode = "SF", line: LineCode = "N") async throws -> [Stop] {
         // Check cache first
         let cacheKey = StopCacheKey(operatorCode: operatorCode, lineCode: line)
         if let (cachedStops, timestamp) = stopCache[cacheKey], 
@@ -50,7 +54,7 @@ actor SFTransitService: TransitService {
         return stops
     }
     
-    func fetchRealtime(_ stopID: StopCode = "14510", operatorID: OperatorCode = "SF") async -> Result<[TripForecast], Error> {
+    public func fetchRealtime(_ stopID: StopCode = "14510", operatorID: OperatorCode = "SF") async -> Result<[TripForecast], Error> {
         // Real-time data should not be cached, so we always fetch from the API
         return await api.refreshRealtime(stopID, operatorID: operatorID)
     }
