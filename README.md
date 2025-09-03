@@ -169,7 +169,7 @@ let mockRepository = MockTransitService()
 
 // Configure the mock repository
 let mockLine = Line(id: "1", name: "Test Line", fromDate: Date(), toDate: Date().addingTimeInterval(86400), 
-                    transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: .sf)
+                    transportMode: .bus, publicCode: "1", siriLineRef: "1", monitored: true, operatorRef: "SF")
 await mockRepository.updateLinesResult(.success([mockLine]))
 
 // Test code that uses the repository
