@@ -11,7 +11,7 @@ public typealias LineID = String
 public typealias OperatorRef = String
 
 // MARK: - Line
-public struct Line: Codable, Sendable, Identifiable {
+public struct Line: Codable, Sendable, Equatable, Identifiable {
     public let id: LineID
     public let name: String
     public let fromDate, toDate: Date

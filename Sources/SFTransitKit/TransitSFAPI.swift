@@ -10,6 +10,13 @@ import Foundation
 public typealias APIKey = String
 
 public typealias Stop = ScheduledStopPoint
+extension Stop: Equatable {
+    public static func == (lhs: ScheduledStopPoint, rhs: ScheduledStopPoint) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+
 public typealias StopCode = String
 public typealias OperatorCode = String
 public typealias LineCode = String

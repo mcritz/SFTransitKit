@@ -1,6 +1,6 @@
 import Foundation
 
-/// Base implementation of TransitService using the ``API``
+/// Base implementation of TransitService using the ``API`` with basic caching
 public actor SFTransitService: TransitService {
     private let api: TransitSFAPI
     private var lineCache: [OperatorCode: ([Line], Date)] = [:]
@@ -60,7 +60,7 @@ public actor SFTransitService: TransitService {
     }
     
     /// Clears all caches
-    func clearCache() {
+    public func clearCache() {
         lineCache.removeAll()
         stopCache.removeAll()
     }

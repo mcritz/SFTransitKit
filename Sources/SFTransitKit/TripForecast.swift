@@ -49,4 +49,8 @@ extension TripForecast: CustomStringConvertible {
     }
 }
 
-extension TripForecast: Equatable {}
+extension TripForecast: Equatable {
+    public static func ==(lhs: TripForecast, rhs: TripForecast) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

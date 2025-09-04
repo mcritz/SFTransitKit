@@ -25,6 +25,14 @@ import Foundation
     // Assert
     #expect(lines.count > 0, "Should have at least one line")
     #expect(lines[0].id.isEmpty == false, "Line should have a non-empty ID")
+    
+    // MARK: - Caching
+    let sfTransitService = SFTransitService(api: api)
+    let sfLines = try await sfTransitService.fetchLines("SF")
+    #expect(sfLines.count > 0)
+    #expect(lines[0].id.isEmpty == false)
+    let cachedLines = try await sfTransitService.fetchLines("SF")
+    #expect(sfLines == cachedLines)
 }
 
 @Test func testFetchStopsWithMockData() async throws {
@@ -52,6 +60,13 @@ import Foundation
     // Assert
     #expect(stops.count > 0, "Should have at least one stop")
     #expect(stops[0].id.isEmpty == false, "Stop should have a non-empty ID")
+    
+    // MARK: - Caching Stops
+    let sfTransitService = SFTransitService(api: api)
+    let sfStops = try await sfTransitService.fetchStops("SF", line: "N")
+    #expect(sfStops.count > 0)
+    let cachedStops = try await sfTransitService.fetchStops("SF", line: "N")
+    #expect(cachedStops == sfStops)
 }
 
 @Test func testFetchRealtimeWithMockData() async throws {
@@ -85,6 +100,26 @@ import Foundation
     case .failure(let error):
         throw error // Fail the test if we get an error
     }
+    
+    
+    // MARK: - Realtime
+    let sfTransitService = SFTransitService(api: api)
+    let sfRealtime = await sfTransitService.fetchRealtime(stopID, operatorID: operatorID)
+    var forecasts = [TripForecast]()
+    switch sfRealtime {
+    case .success(let fetchedForecasts):
+        forecasts = fetchedForecasts
+        #expect(forecasts.count > 0)
+    case .failure(let error):
+        throw error
+    }
+    let sfCachedRealtime = await sfTransitService.fetchRealtime(stopID, operatorID: operatorID)
+    switch sfCachedRealtime {
+    case .success(let cachedForecasts):
+        #expect(cachedForecasts == forecasts)
+    case .failure(let failure):
+        throw failure
+    }
 }
 
 @Test func testNetworkErrorHandling() async throws {
@@ -115,19 +150,27 @@ import Foundation
     let operatorsResultURL = operatorsEndpoint.url(apiKey)
     #expect(operatorsResultURL.absoluteString == "https://api.511.org/transit/operators?api_key=\(apiKey)")
     #expect(operatorsResultURL.path() == "/transit/operators")
+    #expect(operatorsResultURL.query()?.contains("api_key=\(apiKey)") == true)
     
     let linesEndpoint = TransitSFAPI.Endpoint.lines(operatorCode: operatorCode)
     let linesResultURL = linesEndpoint.url(apiKey)
     #expect(linesResultURL.absoluteString == "https://api.511.org/transit/lines?operator_id=\(operatorCode)&api_key=\(apiKey)")
     #expect(linesResultURL.path() == "/transit/lines")
+    #expect(linesResultURL.query()?.contains("api_key=\(apiKey)") == true)
+    #expect(linesResultURL.query()?.contains("operator_id=\(operatorCode)") == true)
     
     let stopsEndpoint = TransitSFAPI.Endpoint.stops(operatorCode: operatorCode, lineCode: lineCode)
     let stopsResultURL = stopsEndpoint.url(apiKey)
     #expect(stopsResultURL.absoluteString == "https://api.511.org/transit/stops?operator_id=\(operatorCode)&line_id=\(lineCode)&api_key=\(apiKey)")
     #expect(stopsResultURL.path() == "/transit/stops")
+    #expect(stopsResultURL.query()?.contains("api_key=\(apiKey)") == true)
+    #expect(stopsResultURL.query()?.contains("operator_id=\(operatorCode)") == true)
+    #expect(stopsResultURL.query()?.contains("line_id=\(lineCode)") == true)
     
     let realTimeEndpoint = TransitSFAPI.Endpoint.realtime(operatorCode: operatorCode, stopCode: stopCode)
     let realTimeResultURL = realTimeEndpoint.url(apiKey)
     #expect(realTimeResultURL.absoluteString == "https://api.511.org/transit/stopmonitoring?agency=\(operatorCode)&stopCode=\(stopCode)&api_key=\(apiKey)")
     #expect(realTimeResultURL.path() == "/transit/stopmonitoring")
+    #expect(realTimeResultURL.query()?.contains("api_key=\(apiKey)") == true)
+    #expect(realTimeResultURL.query()?.contains("stopCode=\(stopCode)") == true)
 }
