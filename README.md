@@ -216,6 +216,3 @@ case .failure(let error):
 }
 ```
 
-## License
-
-[Include your license information here]
