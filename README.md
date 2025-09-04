@@ -14,7 +14,7 @@ The library handles API communication, data parsing, and provides a caching laye
 
 ## Requirements
 
-- Swift 6.2+
+- Swift 6.1+
 - macOS 13+, iOS 16+, watchOS 9+, or visionOS 1+
 - An API key from [511.org/open-data/transit](https://511.org/open-data/transit)
 
