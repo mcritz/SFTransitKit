@@ -13,10 +13,10 @@ import Foundation
     let fixtureData = try Data(contentsOf: fixtureURL)
     
     // Create the API with the mock client
-    let api = API(apiKey: "test-api-key", networkClient: mockClient)
+    let api = TransitSFAPI(apiKey: "test-api-key", networkClient: mockClient)
     
     // Set up the mock to return our fixture data for the expected URL
-    let expectedURL = API.Endpoint.lines(operatorCode: "SF").url("test-api-key")
+    let expectedURL = TransitSFAPI.Endpoint.lines(operatorCode: "SF").url("test-api-key")
     await mockClient.updateResponseData([expectedURL: fixtureData])
     
     // Act
@@ -40,10 +40,10 @@ import Foundation
     let fixtureData = try Data(contentsOf: fixtureURL)
     
     // Create the API with the mock client
-    let api = API(apiKey: "test-api-key", networkClient: mockClient)
+    let api = TransitSFAPI(apiKey: "test-api-key", networkClient: mockClient)
     
     // Set up the mock to return our fixture data for the expected URL
-    let expectedURL = API.Endpoint.stops(operatorCode: "SF", lineCode: "N").url("test-api-key")
+    let expectedURL = TransitSFAPI.Endpoint.stops(operatorCode: "SF", lineCode: "N").url("test-api-key")
     await mockClient.updateResponseData([expectedURL : fixtureData])
     
     // Act
@@ -67,12 +67,12 @@ import Foundation
     let fixtureData = try Data(contentsOf: fixtureURL)
     
     // Create the API with the mock client
-    let api = API(apiKey: "test-api-key", networkClient: mockClient)
+    let api = TransitSFAPI(apiKey: "test-api-key", networkClient: mockClient)
     
     // Set up the mock to return our fixture data for the expected URL
     let stopID = "14510"
     let operatorID = "SF"
-    let expectedURL = API.Endpoint.realtime(operatorCode: operatorID, stopCode: stopID).url("test-api-key")
+    let expectedURL = TransitSFAPI.Endpoint.realtime(operatorCode: operatorID, stopCode: stopID).url("test-api-key")
     await mockClient.updateResponseData([expectedURL : fixtureData])
     
     // Act
@@ -90,7 +90,7 @@ import Foundation
 @Test func testNetworkErrorHandling() async throws {
     // Arrange
     let mockClient = MockNetworkClient()
-    let api = API(apiKey: "test-api-key", networkClient: mockClient)
+    let api = TransitSFAPI(apiKey: "test-api-key", networkClient: mockClient)
     
     // Set up the mock to return an error
     let testError = NSError(domain: "TestError", code: 500, userInfo: [NSLocalizedDescriptionKey: "Test network error"])
@@ -103,4 +103,31 @@ import Foundation
     } catch {
         #expect(error.localizedDescription == testError.localizedDescription, "Should throw the expected error")
     }
+}
+
+@Test func testEndpoints() {
+    let operatorCode = "TEST"
+    let lineCode = "LINE_TEST"
+    let stopCode = "STOP_TEST"
+    let apiKey = "TEST_API_KEY"
+    
+    let operatorsEndpoint = TransitSFAPI.Endpoint.operators
+    let operatorsResultURL = operatorsEndpoint.url(apiKey)
+    #expect(operatorsResultURL.absoluteString == "https://api.511.org/transit/operators?api_key=\(apiKey)")
+    #expect(operatorsResultURL.path() == "/transit/operators")
+    
+    let linesEndpoint = TransitSFAPI.Endpoint.lines(operatorCode: operatorCode)
+    let linesResultURL = linesEndpoint.url(apiKey)
+    #expect(linesResultURL.absoluteString == "https://api.511.org/transit/lines?operator_id=\(operatorCode)&api_key=\(apiKey)")
+    #expect(linesResultURL.path() == "/transit/lines")
+    
+    let stopsEndpoint = TransitSFAPI.Endpoint.stops(operatorCode: operatorCode, lineCode: lineCode)
+    let stopsResultURL = stopsEndpoint.url(apiKey)
+    #expect(stopsResultURL.absoluteString == "https://api.511.org/transit/stops?operator_id=\(operatorCode)&line_id=\(lineCode)&api_key=\(apiKey)")
+    #expect(stopsResultURL.path() == "/transit/stops")
+    
+    let realTimeEndpoint = TransitSFAPI.Endpoint.realtime(operatorCode: operatorCode, stopCode: stopCode)
+    let realTimeResultURL = realTimeEndpoint.url(apiKey)
+    #expect(realTimeResultURL.absoluteString == "https://api.511.org/transit/stopmonitoring?agency=\(operatorCode)&stopCode=\(stopCode)&api_key=\(apiKey)")
+    #expect(realTimeResultURL.path() == "/transit/stopmonitoring")
 }

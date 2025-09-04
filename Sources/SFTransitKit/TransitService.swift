@@ -8,7 +8,7 @@
 import Foundation
 
 /// Protocol defining the transit data repository operations
-protocol TransitService: Sendable {
+public protocol TransitService: Sendable {
     /// Fetches lines for a specific operator
     func fetchLines(_ operatorCode: OperatorCode) async throws -> [Line]
     

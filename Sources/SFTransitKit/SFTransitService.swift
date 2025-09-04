@@ -1,8 +1,8 @@
 import Foundation
 
-/// Implementation of TransitService using the API
+/// Base implementation of TransitService using the ``API``
 public actor SFTransitService: TransitService {
-    private let api: API
+    private let api: TransitSFAPI
     private var lineCache: [OperatorCode: ([Line], Date)] = [:]
     private var stopCache: [StopCacheKey: ([Stop], Date)] = [:]
     private let cacheDuration: TimeInterval = 60 * 60 // 1 hour
@@ -12,12 +12,12 @@ public actor SFTransitService: TransitService {
         let lineCode: LineCode
     }
     
-    public init(api: API) {
+    public init(api: TransitSFAPI) {
         self.api = api
     }
     
     public init(apiKey: APIKey) {
-        let api = API(apiKey: apiKey)
+        let api = TransitSFAPI(apiKey: apiKey)
         self.init(api: api)
     }
     

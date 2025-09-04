@@ -14,7 +14,7 @@ public typealias StopCode = String
 public typealias OperatorCode = String
 public typealias LineCode = String
 
-public actor API {
+public actor TransitSFAPI {
     private let decoder: JSONDecoder
     private let apiKey: APIKey
     private let networkClient: NetworkClient
@@ -28,7 +28,7 @@ public actor API {
     }
     
     public enum Endpoint {
-        private static let baseURL: URL = URL(string: "http://api.511.org/transit/")!
+        private static let baseURL: URL = URL(string: "https://api.511.org/transit/")!
         
         case operators
         case lines(operatorCode: OperatorCode)
@@ -38,8 +38,11 @@ public actor API {
         func url(_ apiKey: APIKey) -> URL {
             switch self {
             case .operators:
-                let path = "Operators?api_key=\(apiKey)"
+                let path = "operators"
                 return Self.baseURL.appendingPathComponent(path)
+                    .appending(queryItems: [
+                        .init(name: "api_key", value: apiKey)
+                    ])
             case .lines(operatorCode: let agency):
                 let path = "lines"
                 return Self.baseURL.appendingPathComponent(path)
@@ -51,19 +54,19 @@ public actor API {
                 let path = "stops"
                 return Self.baseURL.appendingPathComponent(path)
                     .appending(queryItems: [
-                        .init(name: "api_key", value: apiKey),
                         .init(name: "operator_id", value: agency),
                         .init(name: "line_id", value: lineCode),
+                        .init(name: "api_key", value: apiKey),
                     ])
                 
             // http://api.511.org/transit/StopMonitoring?api_key=SOME-UUID&agency=SF&stopCode=14510
             case .realtime(operatorCode: let agency, stopCode: let stopCode):
-                let path = "StopMonitoring"
+                let path = "stopmonitoring"
                 return Self.baseURL.appendingPathComponent(path)
                     .appending(queryItems: [
-                        .init(name: "api_key", value: apiKey),
                         .init(name: "agency", value: agency),
                         .init(name: "stopCode", value: stopCode),
+                        .init(name: "api_key", value: apiKey),
                     ])
             }
         }
@@ -71,7 +74,7 @@ public actor API {
 }
 
 // MARK: - Lines
-extension API {
+extension TransitSFAPI {
     public func fetchLines(_ agency: OperatorCode = "SF") async throws -> [Line] {
         let url = Endpoint.lines(operatorCode: agency).url(apiKey)
         let data = try await networkClient.fetchData(from: url)
@@ -81,7 +84,7 @@ extension API {
 }
 
 // MARK: - Stops
-extension API {
+extension TransitSFAPI {
     public func fetchStops(_ agency: OperatorCode = "SF", line: LineCode = "N") async throws -> [Stop] {
         let url = Endpoint.stops(operatorCode: agency, lineCode: line).url(apiKey)
         let data = try await networkClient.fetchData(from: url)
@@ -91,7 +94,7 @@ extension API {
 }
 
 // MARK: - Stop Forecasts
-extension API {
+extension TransitSFAPI {
     private func fetchRealtime(_ stopID: StopCode = "14510", operatorID: OperatorCode = "SF") async throws -> [TripForecast] {
         let url = Endpoint.realtime(operatorCode: operatorID, stopCode: stopID).url(apiKey)
         let data = try await networkClient.fetchData(from: url)

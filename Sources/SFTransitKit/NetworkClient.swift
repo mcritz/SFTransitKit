@@ -11,7 +11,7 @@ public protocol NetworkClient: Sendable {
     func fetchData(from url: URL) async throws -> Data
 }
 
-/// Production implementation of ```NetworkClient```
+/// Production implementation of ``NetworkClient``
 public struct URLSessionNetworkClient: NetworkClient {
     public init() { }
     
