@@ -26,7 +26,7 @@ Add SFTransitKit to your project using Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/SFTransitKit.git", from: "1.0.0")
+    .package(url: "https://github.com/mcritz/SFTransitKit.git", from: "1.0.0")
 ]
 ```
 
@@ -34,24 +34,28 @@ dependencies: [
 
 ### Initialization
 
-First, initialize the API with your 511.org API key:
+First, initialize the `TransitSFAPI` with your [511.org](https://511.org/open-data/transit) API key:
 
 ```swift
 import SFTransitKit
 
 // Initialize with your API key
-let api = API(apiKey: "your-511-api-key")
+let api = TransitSFAPI(apiKey: "your-511-api-key")
 
-// For better organization and caching, use TransitService
-let repository = SFTransitService(api: api)
+// For a basic implemetation that includes caching, use `SFTransitService`
+let service = SFTransitService(api: api)
 ```
+
+#### Extensibility
+
+You can create any type that conforms to the `TransitService` protocol to build whatever additional features you want, like adding data persistance, further protocol conformances, `@Observable`, etc.
 
 ### Fetching Transit Lines
 
 ```swift
 // Fetch all lines for SF Muni (default operator)
 do {
-    let lines = try await repository.fetchLines()
+    let lines = try await service.fetchLines()
     for line in lines {
         print("Line: \(line.name) (\(line.id))")
     }
@@ -60,15 +64,15 @@ do {
 }
 
 // Fetch lines for a different operator
-let acTransitLines = try await repository.fetchLines("AC")
+let acTransitLines = try await service.fetchLines("AC")
 ```
 
 ### Fetching Stops for a Line
 
 ```swift
-// Fetch stops for the N-Judah line (default)
+// Fetch stops for the N-Judah line
 do {
-    let stops = try await repository.fetchStops()
+    let stops = try await service.fetchStops("N")
     for stop in stops {
         print("Stop: \(stop.name) at \(stop.location.latitude), \(stop.location.longitude)")
     }
@@ -77,7 +81,7 @@ do {
 }
 
 // Fetch stops for a specific line and operator
-let jLineStops = try await repository.fetchStops("SF", line: "J")
+let jLineStops = try await service.fetchStops("SF", line: "J")
 ```
 
 ### Getting Real-time Arrival Forecasts
@@ -85,7 +89,7 @@ let jLineStops = try await repository.fetchStops("SF", line: "J")
 ```swift
 // Get real-time forecasts for a specific stop
 let stopID = "14510" // Example stop ID
-let result = await repository.fetchRealtime(stopID)
+let result = await service.fetchRealtime(stopID)
 
 switch result {
 case .success(let forecasts):
@@ -94,17 +98,6 @@ case .success(let forecasts):
     }
 case .failure(let error):
     print("Error fetching real-time data: \(error)")
-}
-```
-
-### Clearing the Cache
-
-The repository maintains a cache of lines and stops to reduce API calls. You can clear this cache when needed:
-
-```swift
-// Clear the cache if you're using SFTransitService
-if let repositoryImpl = repository as? SFTransitService {
-    repositoryImpl.clearCache()
 }
 ```
 

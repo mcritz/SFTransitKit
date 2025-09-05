@@ -5,20 +5,26 @@ public actor SFTransitService: TransitService {
     private let api: TransitSFAPI
     private var lineCache: [OperatorCode: ([Line], Date)] = [:]
     private var stopCache: [StopCacheKey: ([Stop], Date)] = [:]
-    private let cacheDuration: TimeInterval = 60 * 60 // 1 hour
+    private let cacheDuration: TimeInterval
 
-    struct StopCacheKey: Hashable {
+    private struct StopCacheKey: Hashable {
         let operatorCode: OperatorCode
         let lineCode: LineCode
     }
     
-    public init(api: TransitSFAPI) {
+    /// 
+    /// - Parameters:
+    ///   - api: ``TransitSFAPI`` that handles your networking
+    ///   - cacheDuration: how long some network requests should be cached. 1 day by default.
+    /// This does not effect the realtime fetches
+    public init(api: TransitSFAPI, cacheDuration: TimeInterval = 8_640 ) {
         self.api = api
+        self.cacheDuration = cacheDuration
     }
     
-    public init(apiKey: APIKey) {
+    public init(apiKey: APIKey, cacheDuration: TimeInterval = 8_640) {
         let api = TransitSFAPI(apiKey: apiKey)
-        self.init(api: api)
+        self.init(api: api, cacheDuration: cacheDuration)
     }
     
     public func fetchLines(_ operatorCode: OperatorCode = "SF") async throws -> [Line] {
