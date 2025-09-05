@@ -7,6 +7,10 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public protocol NetworkClient: Sendable {
     func fetchData(from url: URL) async throws -> Data
 }
