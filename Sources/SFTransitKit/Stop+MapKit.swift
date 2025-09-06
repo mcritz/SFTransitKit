@@ -5,6 +5,7 @@
 //  Created by Critz, Michael on 2025-09-05.
 //
 
+#if canImport(MapKit)
 import MapKit
 
 extension Stop {
@@ -16,3 +17,4 @@ extension Stop {
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
 }
+#endif
