@@ -99,7 +99,7 @@ jobs:
         run: swift build -v --configuration release
 
       - name: Run tests
-        run: swift test -v --configuration release --parallel
+        run: swift test -v --configuration debug --parallel
     
   android:
     name: Android (Swift for Android SDK)
