@@ -107,10 +107,25 @@ jobs:
 
       - name: Install Android Swift SDK artifact bundle
         run: |
-          # Avoid NDK conflicts (per SDK README)
+          # Avoid NDK conflicts (per SDK docs)
           unset ANDROID_NDK_ROOT || true
           swift sdk install "$ANDROID_SDK_BUNDLE_URL" --checksum "$ANDROID_SDK_BUNDLE_SHA256"
+          echo "Available Swift SDKs:"
           swift sdk list
+
+      - name: Determine Android SDK ID
+        id: pick_sdk
+        run: |
+          # Try common patterns and fall back to the first line containing both 'android' and 'aarch64'
+          ID="$(swift sdk list | grep -E 'aarch64.*android|android.*aarch64|linux-android.*aarch64' | head -n1 || true)"
+          if [ -z "$ID" ]; then
+            echo "No matching Android aarch64 Swift SDK found."
+            echo "Dumping full list for debugging:" 
+            swift sdk list || true
+            exit 1
+          fi
+          echo "Found Swift SDK ID: $ID"
+          echo "ANDROID_ID=$ID" >> "$GITHUB_OUTPUT"
 
       - name: Cache SwiftPM (Android cross)
         uses: actions/cache@v4
@@ -125,11 +140,11 @@ jobs:
         run: |
           swift build -v \
             --build-path .build-android \
-            --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }}
+            --swift-sdk "${{ steps.pick_sdk.outputs.ANDROID_ID }}"
 
       - name: Build tests for Android (compile check)
         run: |
           swift build -v \
             --build-path .build-android \
-            --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }} \
+            --swift-sdk "${{ steps.pick_sdk.outputs.ANDROID_ID }}" \
             --build-tests
