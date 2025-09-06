@@ -1,4 +1,4 @@
-name: CI (Swift 6.1 via swiftly)
+name: CI (Swift 6.1 • macOS • Linux • Android)
 
 on:
   push:
@@ -12,19 +12,37 @@ concurrency:
 
 env:
   SWIFT_VERSION: "6.1.2"
-  ANDROID_SDK_BUNDLE_URL: "https://github.com/finagolfin/swift-android-sdk/releases/download/6.1.2/swift-6.1.2-RELEASE-android-24-0.1.artifactbundle.tar.gz"
-  ANDROID_SDK_BUNDLE_SHA256: "6d817c947870e8c85e6cab9a6ab6d7313b50fa5a20b890c396723c0b16ab32d9"
+
+  # Android Swift SDK bundle (snapshot 6.2, usable from Swift 6.1 host toolchain)
+  ANDROID_SDK_BUNDLE_URL: "https://github.com/swift-android-sdk/swift-android-sdk/releases/download/6.2-DEVELOPMENT-SNAPSHOT-2025-08-30-a/swift-6.2-DEVELOPMENT-SNAPSHOT-2025-08-30-a-android-0.1.artifactbundle.tar.gz"
+  ANDROID_SDK_BUNDLE_SHA256: "ac51c77a60f85a00ef0e3ab2a6f43449ce371dfa29b7415fa4d24e35d9f4e7ef"
+
+  # ID published inside the artifactbundle (matches “aarch64-unknown-linux-android24”)
   ANDROID_SWIFT_SDK_ID: "aarch64-unknown-linux-android24"
+  ANDROID_API_LEVEL: "24"
 
 jobs:
   linux:
+    name: Linux • Swift ${{ env.SWIFT_VERSION }} (swiftly)
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install swiftly
-        run: curl -fsSL https://swift.org/install.sh | bash
+
+      - name: Install swiftly (official Swift.org method)
+        run: |
+          set -euxo pipefail
+          curl -O https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz
+          tar zxf swiftly-$(uname -m).tar.gz
+          ./swiftly init --quiet-shell-followup
+          echo "SWIFTLY_HOME=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}" >> $GITHUB_ENV
+          echo "PATH=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/bin:$PATH" >> $GITHUB_ENV
+
       - name: Install Swift ${{ env.SWIFT_VERSION }}
-        run: swiftly install ${{ env.SWIFT_VERSION }} && swiftly use ${{ env.SWIFT_VERSION }}
+        run: |
+          swiftly install $SWIFT_VERSION
+          swiftly use $SWIFT_VERSION
+          swift --version
+
       - name: Cache SwiftPM
         uses: actions/cache@v4
         with:
@@ -32,19 +50,24 @@ jobs:
             .build
             ~/.swiftpm
           key: spm-${{ runner.os }}-${{ env.SWIFT_VERSION }}-${{ hashFiles('**/Package.resolved') }}
+
       - name: Build
         run: swift build -v
+
       - name: Test
         run: swift test -v
 
   macos:
+    name: macOS 15 • Swift ${{ env.SWIFT_VERSION }}
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - name: Install swiftly
-        run: curl -fsSL https://swift.org/install.sh | bash
+
       - name: Install Swift ${{ env.SWIFT_VERSION }}
-        run: swiftly install ${{ env.SWIFT_VERSION }} && swiftly use ${{ env.SWIFT_VERSION }}
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
+
       - name: Cache SwiftPM
         uses: actions/cache@v4
         with:
@@ -53,32 +76,59 @@ jobs:
             ~/Library/Developer/Xcode/DerivedData
             ~/.swiftpm
           key: spm-${{ runner.os }}-${{ env.SWIFT_VERSION }}-${{ hashFiles('**/Package.resolved') }}
+
       - name: Build
         run: swift build -v
+
       - name: Test
         run: swift test -v
 
   android:
+    name: Android (cross-compile) • Swift ${{ env.SWIFT_VERSION }}
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install swiftly + Swift ${{ env.SWIFT_VERSION }}
+      - name: Install swiftly
         run: |
-          curl -fsSL https://swift.org/install.sh | bash
-          swiftly install ${{ env.SWIFT_VERSION }} && swiftly use ${{ env.SWIFT_VERSION }}
+          set -euxo pipefail
+          curl -O https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz
+          tar zxf swiftly-$(uname -m).tar.gz
+          ./swiftly init --quiet-shell-followup
+          echo "SWIFTLY_HOME=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}" >> $GITHUB_ENV
+          echo "PATH=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Install Android SDK bundle (Swift SDK)
+      - name: Install Swift ${{ env.SWIFT_VERSION }}
         run: |
-          # IMPORTANT: README says unset ANDROID_NDK_ROOT when using the bundle
+          swiftly install $SWIFT_VERSION
+          swiftly use $SWIFT_VERSION
+          swift --version
+
+      - name: Install Android Swift SDK artifact bundle
+        run: |
+          # Unset NDK root to avoid conflicts (per SDK README)
           unset ANDROID_NDK_ROOT || true
           swift sdk install "$ANDROID_SDK_BUNDLE_URL" --checksum "$ANDROID_SDK_BUNDLE_SHA256"
           swift sdk list
 
-      - name: Resolve
+      - name: Cache SwiftPM (Android cross)
+        uses: actions/cache@v4
+        with:
+          path: .build-android
+          key: spm-android-${{ env.SWIFT_VERSION }}-${{ hashFiles('**/Package.resolved') }}
+
+      - name: Resolve dependencies
         run: swift package resolve
 
-      - name: Build for Android (and compile tests)
+      - name: Build for Android
         run: |
-          swift build -v --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }}
-          swift build -v --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }} --build-tests
+          swift build -v \
+            --build-path .build-android \
+            --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }}
+
+      - name: Build tests for Android (compile check)
+        run: |
+          swift build -v \
+            --build-path .build-android \
+            --swift-sdk ${{ env.ANDROID_SWIFT_SDK_ID }} \
+            --build-tests
