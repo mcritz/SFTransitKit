@@ -83,49 +83,33 @@ jobs:
 
       - name: Test
         run: swift test -v
-
+    
   android:
-    name: Android (cross-compile)
+    name: Android (Swift for Android SDK)
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install swiftly
+      # Download and extract the Android Swift SDK bundle
+      - name: Download Android Swift SDK
         run: |
           set -euxo pipefail
-          curl -O https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz
-          tar zxf swiftly-$(uname -m).tar.gz
-          ./swiftly init --quiet-shell-followup
-          echo "SWIFTLY_HOME=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}" >> $GITHUB_ENV
-          echo "PATH=${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/bin:$PATH" >> $GITHUB_ENV
+          curl -L -o android-swift-sdk.tar.gz "$ANDROID_SDK_BUNDLE_URL"
+          echo "$ANDROID_SDK_BUNDLE_SHA256  android-swift-sdk.tar.gz" | sha256sum -c -
+          mkdir android-swift-sdk
+          tar -xf android-swift-sdk.tar.gz -C android-swift-sdk --strip-components=1
 
-      - name: Install Swift
+      # Export SDK path for subsequent steps
+      - name: Set Android Swift SDK environment
         run: |
-          swiftly install "$SWIFT_VERSION"
-          swiftly use "$SWIFT_VERSION"
-          swift --version
+          echo "SWIFT_ANDROID_SDK_PATH=$PWD/android-swift-sdk" >> $GITHUB_ENV
+          echo "$PWD/android-swift-sdk/bin" >> $GITHUB_PATH
 
-      - name: Install Android Swift SDK artifact bundle
-        run: |
-          # Avoid NDK conflicts (per SDK docs)
-          unset ANDROID_NDK_ROOT || true
-          swift sdk install "$ANDROID_SDK_BUNDLE_URL" --checksum "$ANDROID_SDK_BUNDLE_SHA256"
-          echo "Available Swift SDKs:"
-          swift sdk list
-
-      - name: Determine Android SDK ID
-        id: pick_sdk
-        run: |
-          # Try common patterns and fall back to the first line containing both 'android' and 'aarch64'
-          ID="$(swift sdk list | grep -E 'aarch64.*android|android.*aarch64|linux-android.*aarch64' | head -n1 || true)"
-          if [ -z "$ID" ]; then
-            echo "No matching Android aarch64 Swift SDK found."
-            echo "Dumping full list for debugging:" 
-            swift sdk list || true
-            exit 1
-          fi
-          echo "Found Swift SDK ID: $ID"
-          echo "ANDROID_ID=$ID" >> "$GITHUB_OUTPUT"
+      # Install host Swift (for cross-compilation)
+      - name: Install Swift (host)
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
 
       - name: Cache SwiftPM (Android cross)
         uses: actions/cache@v4
@@ -136,15 +120,20 @@ jobs:
       - name: Resolve dependencies
         run: swift package resolve
 
+      # Build for Android using SwiftPM's new --android flag (see Swift forums guide)
       - name: Build for Android
         run: |
           swift build -v \
             --build-path .build-android \
-            --swift-sdk "${{ steps.pick_sdk.outputs.ANDROID_ID }}"
+            --triple ${{ env.ANDROID_SWIFT_SDK_ID }} \
+            --sdk ${{ env.SWIFT_ANDROID_SDK_PATH }}
 
+      # Build tests for Android (compile check, not run)
       - name: Build tests for Android (compile check)
         run: |
           swift build -v \
             --build-path .build-android \
-            --swift-sdk "${{ steps.pick_sdk.outputs.ANDROID_ID }}" \
+            --triple ${{ env.ANDROID_SWIFT_SDK_ID }} \
+            --sdk ${{ env.SWIFT_ANDROID_SDK_PATH }} \
             --build-tests
+  
