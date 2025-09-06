@@ -36,7 +36,9 @@ public struct Line: Codable, Sendable, Equatable, Hashable, Identifiable {
 public enum TransportMode: String, Codable, Sendable {
     case bus = "bus"
     case cableway = "cableway"
+    case ferry = "ferry"
     case metro = "metro"
+    case rail = "rail"
 }
 
 public typealias Lines = [Line]
