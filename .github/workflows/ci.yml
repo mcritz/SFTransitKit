@@ -132,7 +132,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .build-android
-          key: spm-android-${{ env.SWIFT_VERSION }}-${{ hashFiles('**/Package.resolved') }}
+          key: spm-android-6.2-${{ hashFiles('**/Package.resolved') }}
 
       - name: Resolve dependencies
         run: swift package resolve
